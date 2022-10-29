@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Horse;
 
 class HorseController extends Controller
 {
@@ -13,7 +14,8 @@ class HorseController extends Controller
      */
     public function index()
     {
-        return view('horses.index');
+        $horses = Horse::paginate(5);
+        return view('horses.index', compact('horses'));
     }
 
     /**
