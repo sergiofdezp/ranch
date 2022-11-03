@@ -5,39 +5,40 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="flex items-center justify-center p-12">
                     <div class="mx-auto w-full max-w-[550px]">
-                        <form action="{{ route('horses.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('horses.update', $horse->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="mb-3">
                                 <label for="nombre" class="mb-2 block text-base font-medium text-[#07074D]">Nombre</label>
-                                <input type="text" name="nombre" id="nombre" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                <input type="text" name="nombre" id="nombre" value="{{$horse->nombre}}" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                             </div>
                             <div class="mb-3">
                                 <label for="raza" class="mb-2 block text-base font-medium text-[#07074D]">Raza</label>
-                                <input type="text" name="raza" id="raza" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                <input type="text" name="raza" id="raza" value="{{$horse->raza}}" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                             </div>
                             <div class="mb-3">
                                 <label for="edad" class="mb-2 block text-base font-medium text-[#07074D]">Edad</label>
-                                <input type="number" name="edad" id="edad" min=0 class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                <input type="number" name="edad" id="edad" value="{{$horse->edad}}" min=0 class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                             </div>
                             <div class="mb-3">
                                 <label for="doma" class="mb-2 block text-base font-medium text-[#07074D]">Doma</label>
-                                <select name="doma" id="doma" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
-                                    <option value="" disabled>Seleccione una doma</option>  
-                                    <option value="No">No</option>
-                                    <option value="Doma equina">Doma equina</option>
+                                <select name="doma" id="doma" value="{{$horse->doma}}" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                    <option value="" disabled>Seleccione una doma</option>
+                                    <option value="No" @if($horse->doma=="No")selected @endif>No</option>
+                                    <option value="Doma equina" @if($horse->doma=="Doma equina")selected @endif>Doma equina</option>
                                 </select>
                             </div>
                             <div class="mb-4">
                                 <label for="vacuna" class="block text-base font-medium text-[#07074D]">Vacunas</label>
-                                <select name="vacuna" id="vacuna" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
-                                    <option value="" disabled>Seleccione una vacuna</option>  
-                                    <option value="No">No</option>
-                                    <option value="Gripe equina">Gripe equina</option>
+                                <select name="vacuna" id="vacuna" value="{{$horse->vacuna}}"  class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                    <option value="" disabled>Seleccione una vacuna</option>
+                                    <option value="No" @if($horse->vacuna=="No")selected @endif>No</option>
+                                    <option value="Gripe equina" @if($horse->vacuna=="Gripe equina")selected @endif>Gripe equina</option>
                                 </select>
                             </div>
                             <!-- IMAGEN -->
                             <div class="">
-                                <img id="imagenSeleccionada" style="max-height: 200px;" class="mx-auto d-block">           
+                                <img src="/imagen/{{ $horse->imagen }}" id="imagenSeleccionada" style="max-height: 200px;" class="mx-auto d-block">
                             </div>
                             <div class="mb-4">
                                 <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1">Subir Imagen</label>
