@@ -16,12 +16,11 @@ class CreateHorsesTable extends Migration
         Schema::create('horses', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('descripcion');
-            $table->string('imagen');
             $table->string('raza');
             $table->string('edad');
-            $table->string('altura');
             $table->string('doma');
+            $table->string('vacuna');
+            $table->string('imagen');
             $table->timestamps();
         });
     }
