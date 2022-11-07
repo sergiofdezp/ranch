@@ -19,7 +19,7 @@ class CreateHorsesTable extends Migration
             $table->string('raza');
             $table->string('edad');
             $table->string('doma');
-            $table->string('vacuna');
+            $table->string('herraje');
             $table->string('imagen');
             $table->timestamps();
         });

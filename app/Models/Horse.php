@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Horse extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre', 'raza', 'edad', 'doma', 'vacuna', 'imagen'];
+    protected $fillable = ['nombre', 'raza', 'edad', 'doma', 'herraje', 'imagen'];
 }

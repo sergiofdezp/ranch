@@ -30,11 +30,12 @@
                                 </select>
                             </div>
                             <div class="mb-4">
-                                <label for="vacuna" class="block text-base font-medium text-[#07074D]">Vacunas</label>
-                                <select name="vacuna" id="vacuna" required="required" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
-                                    <option value="" disabled>Seleccione una vacuna</option>  
+                                <label for="herraje" class="block text-base font-medium text-[#07074D]">Herraje</label>
+                                <select name="herraje" id="herraje" required="required" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                    <option value="" disabled>Seleccione un tipo de herraje</option>  
                                     <option value="No">No</option>
-                                    <option value="Gripe equina">Gripe equina</option>
+                                    <option value="Herraduras de hierro">Herraduras de hierro</option>
+                                    <option value="Zapatos de plástico">Zapatos de plástico</option>
                                 </select>
                             </div>
                             <!-- IMAGEN -->

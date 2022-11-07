@@ -38,7 +38,7 @@ class HorseController extends Controller
     {
         $horse = $request->all();
         if($imagen = $request->file('imagen')) {
-            $rutaGuardarImg = 'imagen/';
+            $rutaGuardarImg = 'imagen/horses/';
             $imagenHorse = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
             $imagen->move($rutaGuardarImg, $imagenHorse);
             $horse['imagen'] = "$imagenHorse";             
@@ -81,7 +81,7 @@ class HorseController extends Controller
     {
         $hors = $request->all();
         if($imagen = $request->file('imagen')){
-           $rutaGuardarImg = 'imagen/';
+           $rutaGuardarImg = 'imagen/horses/';
            $imagenHorse = date('YmdHis') . "." . $imagen->getClientOriginalExtension(); 
            $imagen->move($rutaGuardarImg, $imagenHorse);
            $hors['imagen'] = "$imagenHorse";
