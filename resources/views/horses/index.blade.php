@@ -4,6 +4,9 @@
             <div class="text-end pb-2">
                 <a href="{{ route('horses.create')}}" class="btn btn-success">Añadir un caballo</a>
             </div>
+            @if(session('message'))
+                <div class="alert alert-success">{{session('message')}}</div>
+            @endif
             <input type="text" id="horseInput" onkeyup="myFunction()" placeholder="Buscar por nombre...">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <table id="tabla_horses" class="table-fixed w-full">

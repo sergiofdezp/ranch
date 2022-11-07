@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Horse;
+use Auth;
 
 class HorseController extends Controller
 {
@@ -14,7 +15,12 @@ class HorseController extends Controller
      */
     public function index()
     {
-        $horses = Horse::all();
+        $user = Auth::user();
+        if($user->name == 'superadmin'){
+            $horses = Horse::all();
+        } else{
+            $horses = Horse::where('id', auth()->id())->get();
+        }
         return view('horses.index', compact('horses'));
     }
 
@@ -45,7 +51,7 @@ class HorseController extends Controller
         }
         
         Horse::create($horse);
-        return redirect()->route('horses.index');
+        return redirect()->route('horses.index')->with('message', 'El caballo ha sido añadido correctamente.');
     }
 
     /**
@@ -90,7 +96,7 @@ class HorseController extends Controller
         }
         $horse->update($hors);
         
-        return redirect()->route('horses.index');
+        return redirect()->route('horses.index')->with('message', 'El caballo '. $horse->nombre .' ha sido editado.');
     }
 
     /**
@@ -103,6 +109,6 @@ class HorseController extends Controller
     {
         $horse->delete();
         
-        return redirect()->route('horses.index');
+        return redirect()->route('horses.index')->with('message', 'El caballo '. $horse->nombre .' ha sido eliminado correctamente.');
     }
 }
