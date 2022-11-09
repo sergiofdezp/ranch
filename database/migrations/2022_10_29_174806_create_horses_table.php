@@ -15,6 +15,7 @@ class CreateHorsesTable extends Migration
     {
         Schema::create('horses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->nullable()->constrained('users');
             $table->string('nombre');
             $table->string('raza');
             $table->string('edad');

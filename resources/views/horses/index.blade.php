@@ -12,6 +12,7 @@
                 <table id="tabla_horses" class="table-fixed w-full">
                     <thead>
                         <tr class="text-white text-center" style="background-color: #6875F5;">
+                            <th class="border px-4 py-2">Dueño</th>    
                             <th class="border px-4 py-2">Nombre</th>
                             <th class="border px-4 py-2">Raza</th>
                             <th class="border px-4 py-2">Edad</th>
@@ -24,6 +25,7 @@
                     <tbody>
                     @foreach ($horses as $horse)
                         <tr class="text-center">
+                            <td>{{$horse->user->name}}</td>
                             <td>{{$horse->nombre}}</td>
                             <td>{{$horse->raza}}</td>
                             <td>{{$horse->edad}}</td>

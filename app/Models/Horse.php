@@ -8,5 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Horse extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre', 'raza', 'edad', 'doma', 'herraje', 'imagen'];
+    protected $fillable = ['user_id', 'nombre', 'raza', 'edad', 'doma', 'herraje', 'imagen'];
+
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

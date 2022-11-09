@@ -31,7 +31,8 @@ class HorseController extends Controller
      */
     public function create()
     {
-        return view('horses.create');
+        $user = Auth::user();
+        return view('horses.create', compact('user'));
     }
 
     /**
@@ -49,7 +50,7 @@ class HorseController extends Controller
             $imagen->move($rutaGuardarImg, $imagenHorse);
             $horse['imagen'] = "$imagenHorse";             
         }
-        
+        //dd($horse);
         Horse::create($horse);
         return redirect()->route('horses.index')->with('message', 'El caballo ha sido añadido correctamente.');
     }
