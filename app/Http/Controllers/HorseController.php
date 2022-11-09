@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Horse;
+use App\Models\Vacuna;
 use Auth;
 
 class HorseController extends Controller
@@ -32,7 +33,8 @@ class HorseController extends Controller
     public function create()
     {
         $user = Auth::user();
-        return view('horses.create', compact('user'));
+        $vacunas = Vacuna::all();
+        return view('horses.create', compact('user', 'vacunas'));
     }
 
     /**

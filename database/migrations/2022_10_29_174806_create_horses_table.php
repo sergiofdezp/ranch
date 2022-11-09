@@ -15,12 +15,13 @@ class CreateHorsesTable extends Migration
     {
         Schema::create('horses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->nullable()->constrained('users');
+            $table->foreignId('user_id')->nullable()->constrained('users');
             $table->string('nombre');
             $table->string('raza');
             $table->string('edad');
             $table->string('doma');
             $table->string('herraje');
+            $table->foreignId('vacuna_id')->nullable()->constrained('vacunas');
             $table->string('imagen');
             $table->timestamps();
         });

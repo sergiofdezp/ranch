@@ -18,6 +18,7 @@
                             <th class="border px-4 py-2">Edad</th>
                             <th class="border px-4 py-2">Doma</th>
                             <th class="border px-4 py-2">Herraje</th>
+                            <th class="border px-4 py-2">Vacuna</th>
                             <th class="border px-4 py-2">Imagen</th>
                             <th class="border px-4 py-2">Acciones</th>
                         </tr>
@@ -31,6 +32,7 @@
                             <td>{{$horse->edad}}</td>
                             <td>{{$horse->doma}}</td>
                             <td>{{$horse->herraje}}</td>
+                            <td>{{$horse->vacuna_id}}</td>
                             <td class="border px-10 py-1">
                                 <img src="/imagen/horses/{{$horse->imagen}}" width="100%">    
                             </td>
