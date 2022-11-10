@@ -16,6 +16,10 @@ class VacunaSeeder extends Seeder
     public function run()
     {
         DB::table('vacunas')->insert([
+            'nombre' => "Sin vacunar",
+            'descripcion' => "Sin vacunar",
+        ]);
+        DB::table('vacunas')->insert([
             'nombre' => "Vacuna 1",
             'descripcion' => "Vacuna contra la gripe equina",
         ]);
