@@ -32,7 +32,7 @@
                             <td>{{$horse->edad}}</td>
                             <td>{{$horse->doma}}</td>
                             <td>{{$horse->herraje}}</td>
-                            <td>{{$horse->vacuna_id}}</td>
+                            <td>Vacuna - {{$horse->vacuna_id}}</td>
                             <td class="border px-10 py-1">
                                 <img src="/imagen/horses/{{$horse->imagen}}" width="100%">    
                             </td>
