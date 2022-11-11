@@ -12,13 +12,12 @@
                 <table id="tabla_horses" class="table-fixed w-full">
                     <thead>
                         <tr class="text-white text-center" style="background-color: #6875F5;">
-                            <th class="border px-4 py-2">Dueño</th>    
                             <th class="border px-4 py-2">Nombre</th>
+                            <th class="border px-4 py-2">Sexo</th>
+                            <th class="border px-4 py-2">Dueño</th> 
                             <th class="border px-4 py-2">Raza</th>
                             <th class="border px-4 py-2">Edad</th>
                             <th class="border px-4 py-2">Doma</th>
-                            <th class="border px-4 py-2">Herraje</th>
-                            <th class="border px-4 py-2">Vacuna</th>
                             <th class="border px-4 py-2">Imagen</th>
                             <th class="border px-4 py-2">Acciones</th>
                         </tr>
@@ -26,23 +25,22 @@
                     <tbody>
                     @foreach ($horses as $horse)
                         <tr class="text-center">
-                            <td>{{$horse->user->name}}</td>
                             <td>{{$horse->nombre}}</td>
+                            <td>{{$horse->sexo}}</td>
+                            <td>{{$horse->user->name}}</td>
                             <td>{{$horse->raza}}</td>
                             <td>{{$horse->edad}}</td>
                             <td>{{$horse->doma}}</td>
-                            <td>{{$horse->herraje}}</td>
-                            <td>Vacuna - {{$horse->vacuna_id}}</td>
-                            <td class="border px-10 py-1">
+                            <td class="px-10 py-1">
                                 <img src="/imagen/horses/{{$horse->imagen}}" width="100%">    
                             </td>
-                            <td class="border px-4 py-2">
+                            <td class="px-4 py-2">
                                 <div class="flex justify-center rounded-lg text-lg" role="group">
-                                    <a href="{{ route('horses.edit', $horse->id)}}" class="btn btn-dark mx-1">Editar</a>
+                                    <a href="{{ route('horses.edit', $horse->id)}}" class="btn btn-dark btn-sm mx-1">Editar</a>
                                     <form action="{{ route('horses.destroy', $horse->id)}}" class="formEliminar" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger" style="background-color: #bb2b3b;">Eliminar</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" style="background-color: #bb2b3b;">Eliminar</button>
                                     </form>
                                 </div>
                             </td>

@@ -17,6 +17,7 @@ class CreateHorsesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users');
             $table->string('nombre');
+            $table->string('sexo');
             $table->string('raza');
             $table->string('edad');
             $table->string('doma');
