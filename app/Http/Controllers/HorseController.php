@@ -76,7 +76,8 @@ class HorseController extends Controller
      */
     public function edit(Horse $horse)
     {
-        return view('horses.edit', compact('horse'));
+        $vacunas = Vacuna::all();
+        return view('horses.edit', compact('horse', 'vacunas'));
     }
 
     /**
@@ -99,7 +100,7 @@ class HorseController extends Controller
         }
         $horse->update($hors);
         
-        return redirect()->route('horses.index')->with('message', 'El caballo '. $horse->nombre .' ha sido editado.');
+        return redirect()->route('horses.index')->with('message', $horse->nombre .' ha sido editado correctamente.');
     }
 
     /**
@@ -112,6 +113,6 @@ class HorseController extends Controller
     {
         $horse->delete();
         
-        return redirect()->route('horses.index')->with('message', 'El caballo '. $horse->nombre .' ha sido eliminado correctamente.');
+        return redirect()->route('horses.index')->with('message', $horse->nombre .' ha sido eliminado correctamente.');
     }
 }

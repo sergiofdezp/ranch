@@ -16,13 +16,14 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //usuario admin 
+        // superadmin 
 
         DB::table('users')->insert([
             'name' => "superadmin",
             'email' => "superadmin@admin.com",
             'password' => Hash::make('admin')
         ]);
+
         /*
         DB::table('model_has_roles')->insert([
             'role_id' => "1",
@@ -30,5 +31,22 @@ class UserSeeder extends Seeder
             'model_id' => "1"
         ]);
         */
+
+        // dueños
+        DB::table('users')->insert([
+            'name' => "Jesús Colina",
+            'email' => "jesus@colina.com",
+            'password' => Hash::make('!jesusColina')
+        ]);
+        DB::table('users')->insert([
+            'name' => "Luis Álvarez",
+            'email' => "luis@alvarez.com",
+            'password' => Hash::make('!luisAlvarez')
+        ]);
+        DB::table('users')->insert([
+            'name' => "Franciso López",
+            'email' => "francisco@lopez.com",
+            'password' => Hash::make('!franciscoLopez')
+        ]);
     }
 }
