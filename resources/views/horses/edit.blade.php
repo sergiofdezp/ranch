@@ -13,6 +13,10 @@
                                 <input type="text" name="nombre" id="nombre" value="{{$horse->nombre}}" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                             </div>
                             <div class="mb-3">
+                                <label for="sexo" class="mb-2 block text-base font-medium text-[#07074D]">Sexo</label>
+                                <input type="text" name="sexo" id="sexo" value="{{$horse->sexo}}" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                            </div>
+                            <div class="mb-3">
                                 <label for="raza" class="mb-2 block text-base font-medium text-[#07074D]">Raza</label>
                                 <input type="text" name="raza" id="raza" value="{{$horse->raza}}" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                             </div>

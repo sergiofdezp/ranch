@@ -39,7 +39,7 @@
                                                                 <td>{{$horse->raza}}</td>
                                                                 <td>{{$horse->edad}}</td>
                                                                 <td>{{$horse->doma}}</td>
-                                                                <td class="px-10 py-1">
+                                                                <td>
                                                                     <img src="/imagen/horses/{{$horse->imagen}}" width="100%">    
                                                                 </td>
                                                                 <td class="">
