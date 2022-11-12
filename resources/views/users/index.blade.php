@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="text-end pb-2">
-                <a href="{{ route('horses.create')}}" class="btn btn-success" style="background-color: #11C163; border: none;">Añadir un caballo</a>
+                <a href="{{ route('users.create')}}" class="btn btn-success" style="background-color: #11C163; border: none;">Crear un usuario</a>
             </div>
             @if(session('message'))
                 <div class="alert alert-success">{{session('message')}}</div>
@@ -12,36 +12,24 @@
                 <table class="table table-striped table-fixed w-full mb-0" id="tabla_horses" style="vertical-align:middle;">
                     <thead style="background-color: #6875f5; color: #fff;">
                         <tr>
-                            <th class="col">Dueño</th>    
-                            <th class="col">Nombre</th>
-                            <th class="col">Sexo</th>
-                            <th class="col">Raza</th>
-                            <th class="col">Edad</th>
-                            <th class="col">Doma</th>
-                            <th class="col">Imagen</th>
+                            <th class="col">Nombre</th>    
+                            <th class="col">Email</th>
                             <th class="col text-end">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($horses as $horse)
+                        @foreach ($users as $user)
                             <tr>
-                                <td>{{$horse->user->name}}</td>
-                                <td>{{$horse->nombre}}</td>
-                                <td>{{$horse->sexo}}</td>
-                                <td>{{$horse->raza}}</td>
-                                <td>{{$horse->edad}}</td>
-                                <td>{{$horse->doma}}</td>
-                                <td>
-                                    <img src="/imagen/horses/{{$horse->imagen}}" width="100%">    
-                                </td>
+                                <td>{{$user->name}}</td>
+                                <td>{{$user->email}}</td>
                                 <td class="">
                                     <div class="flex justify-end">
-                                        <a href="{{ route('horses.edit', $horse->id)}}" class="btn btn-dark btn-sm mx-1" style="background-color: #FF9218; border: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <a href="{{ route('users.edit', $user->id)}}" class="btn btn-dark btn-sm mx-1" style="background-color: #FF9218; border: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                             </svg>
                                         </a>
-                                        <form action="{{ route('horses.destroy', $horse->id)}}" class="formEliminar" method="POST">
+                                        <form action="{{ route('users.destroy', $user->id)}}" class="formEliminar" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm" style="background-color: #B9314F; border: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -70,7 +58,8 @@
                 event.preventDefault()
                 event.stopPropagation()        
                 Swal.fire({
-                    title: '¿Seguro que quiere eliminar este caballo?',        
+                    title: '¿Seguro que quiere eliminar este usuario?',     
+                    text: 'Si lo elimina se eliminarán también sus caballos.',   
                     icon: 'info',
                     showCancelButton: true,
                     confirmButtonColor: '#20c997',
