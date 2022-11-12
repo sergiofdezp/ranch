@@ -2,53 +2,74 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="text-end pb-2">
-                <a href="{{ route('horses.create')}}" class="btn btn-success">Añadir un caballo</a>
+                <a href="{{ route('horses.create')}}" class="btn btn-success" style="background-color: #6875f5;">Añadir un caballo</a>
             </div>
             @if(session('message'))
                 <div class="alert alert-success">{{session('message')}}</div>
             @endif
             <input type="text" id="horseInput" onkeyup="myFunction()" placeholder="Buscar por nombre...">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <table id="tabla_horses" class="table-fixed w-full">
-                    <thead>
-                        <tr class="text-white text-center" style="background-color: #6875F5;">
-                            <th class="border px-4 py-2">Nombre</th>
-                            <th class="border px-4 py-2">Sexo</th>
-                            <th class="border px-4 py-2">Dueño</th> 
-                            <th class="border px-4 py-2">Raza</th>
-                            <th class="border px-4 py-2">Edad</th>
-                            <th class="border px-4 py-2">Doma</th>
-                            <th class="border px-4 py-2">Imagen</th>
-                            <th class="border px-4 py-2">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ($horses as $horse)
-                        <tr class="text-center">
-                            <td>{{$horse->nombre}}</td>
-                            <td>{{$horse->sexo}}</td>
-                            <td>{{$horse->user->name}}</td>
-                            <td>{{$horse->raza}}</td>
-                            <td>{{$horse->edad}}</td>
-                            <td>{{$horse->doma}}</td>
-                            <td class="px-10 py-1">
-                                <img src="/imagen/horses/{{$horse->imagen}}" width="100%">    
-                            </td>
-                            <td class="px-4 py-2">
-                                <div class="flex justify-center rounded-lg text-lg" role="group">
-                                    <a href="{{ route('horses.edit', $horse->id)}}" class="btn btn-dark btn-sm mx-1">Editar</a>
-                                    <form action="{{ route('horses.destroy', $horse->id)}}" class="formEliminar" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" style="background-color: #bb2b3b;">Eliminar</button>
-                                    </form>
+            <section class="intro">
+                <div class="bg-image h-100" style="background-color: #f5f7fa;">
+                    <div class="mask d-flex align-items-center h-100">
+                        <div class="">
+                            <div class="row justify-content-center">
+                                <div class="col-12">
+                                    <div class="card">
+                                        <div class="card-body p-0">
+                                            <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                                                <table class="table table-striped table-fixed w-full mb-0" id="tabla_horses" style="vertical-align:middle;">
+                                                    <thead style="background-color: #6875f5; color: #fff;">
+                                                        <tr>
+                                                            <th class="col">Nombre</th>
+                                                            <th class="col">Sexo</th>
+                                                            <th class="col">Dueño</th> 
+                                                            <th class="col">Raza</th>
+                                                            <th class="col">Edad</th>
+                                                            <th class="col">Doma</th>
+                                                            <th class="col">Imagen</th>
+                                                            <th class="col text-center">Acciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($horses as $horse)
+                                                            <tr>
+                                                                <td>{{$horse->nombre}}</td>
+                                                                <td>{{$horse->sexo}}</td>
+                                                                <td>{{$horse->user->name}}</td>
+                                                                <td>{{$horse->raza}}</td>
+                                                                <td>{{$horse->edad}}</td>
+                                                                <td>{{$horse->doma}}</td>
+                                                                <td class="px-10 py-1">
+                                                                    <img src="/imagen/horses/{{$horse->imagen}}" width="100%">    
+                                                                </td>
+                                                                <td class="">
+                                                                    <div class="flex justify-center">
+                                                                        <a href="{{ route('horses.edit', $horse->id)}}" class="btn btn-dark btn-sm mx-1" style="background-color: #3B0086; border: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg></a>
+                                                                        <form action="{{ route('horses.destroy', $horse->id)}}" class="formEliminar" method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="submit" class="btn btn-danger btn-sm" style="background-color: #B9314F; border: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+  <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>
+</svg></button>
+                                                                        </form>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 </x-app-layout>
@@ -80,38 +101,38 @@
     })()
 </script>
 <script>
-function myFunction() {
-  // Declare variables
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("horseInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("tabla_horses");
-  tr = table.getElementsByTagName("tr");
+    function myFunction() {
+    // Declare variables
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("horseInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("tabla_horses");
+    tr = table.getElementsByTagName("tr");
 
-  // Loop through all table rows, and hide those who don't match the search query
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
+    // Loop through all table rows, and hide those who don't match the search query
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+        } else {
+            tr[i].style.display = "none";
+        }
+        }
     }
-  }
-}
+    }
 </script>
 <style>
     #horseInput {
-    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-    background-position: 10px 12px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-    width: 100%; /* Full-width */
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 12px; /* Add some space below the input */
-    border-radius: 7px;
+        background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+        background-position: 10px 12px; /* Position the search icon */
+        background-repeat: no-repeat; /* Do not repeat the icon image */
+        width: 100%; /* Full-width */
+        font-size: 16px; /* Increase font-size */
+        padding: 12px 20px 12px 40px; /* Add some padding */
+        border: 1px solid #ddd; /* Add a grey border */
+        margin-bottom: 12px; /* Add some space below the input */
+        border-radius: 7px;
     }
 </style>
