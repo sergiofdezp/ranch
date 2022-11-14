@@ -20,7 +20,7 @@ class HorseController extends Controller
         if($user->name == 'superadmin'){
             $horses = Horse::all();
         } else{
-            $horses = Horse::where('id', auth()->id())->get();
+            $horses = Horse::where('user_id', auth()->id())->get();
         }
         return view('horses.index', compact('horses'));
     }
