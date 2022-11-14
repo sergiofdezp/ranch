@@ -46,7 +46,7 @@
                                 <label for="vacuna" class="mb-2 block text-base font-medium text-[#07074D]">Vacuna</label>
                                 <select name="vacuna_id" id="vacuna_id" required="required" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                                     @foreach ($vacunas as $vacuna)
-                                        <option value="{{$vacuna->id}}">{{$vacuna->descripcion}}</option>
+                                        <option value="{{$vacuna->id}}">{{$vacuna->nombre}}</option>
                                     @endforeach
                                 </select>
                             </div>

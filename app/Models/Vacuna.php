@@ -9,6 +9,10 @@ class Vacuna extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
+    protected $fillable = ['nombre', 'descripcion'];
+
     public function horse(){
         return $this->belongsTo(Horse::class, 'horse_id');
     }
