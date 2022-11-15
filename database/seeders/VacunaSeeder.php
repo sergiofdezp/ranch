@@ -22,7 +22,7 @@ class VacunaSeeder extends Seeder
             En yeguas gestantes se debe administrar entre 4 y 6 semanas antes del parto.",
         ]);
         DB::table('vacunas')->insert([
-            'nombre' => "Vacuna contra la gripe equina",
+            'nombre' => "Vacuna contra el tétanos",
             'descripcion' => "La primera vacuna debe administrarse entre los 4 y 6 meses de edad, 
             ofreciendo una segunda dosis en el mes posterior y una dosis de refuerzo cada 6 meses. 
             En yeguas gestantes se debe administrar 4 o 6 semanas antes del parto.",
