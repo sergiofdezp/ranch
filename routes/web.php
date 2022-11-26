@@ -5,6 +5,7 @@ use App\Http\Controllers\HorseController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,6 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 Route::get('/', function() {
     return view('home.index');
 })->name('home');
@@ -30,4 +27,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::resource('/users', UserController::class);
     Route::resource('/vacunas', VacunaController::class);
     Route::resource('/home', HomeController::class);
+    Route::resource('/email', EmailController::class);
+
+    //Route::get('/email', [App\Http\Controllers\EmailController::class, 'create']);
+    Route::post('/email', [App\Http\Controllers\EmailController::class, 'sendEmail'])->name('send.email');
 });
