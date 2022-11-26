@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Mail;
+use Auth;
 
 class EmailController extends Controller
 {
     public function index()
     {
+        $user = Auth::user();
         return view('contact.email');
     }
 
@@ -16,6 +18,7 @@ class EmailController extends Controller
     {
         $request->validate([
           'email' => 'required|email',
+          'emailFrom' => 'required',
           'subject' => 'required',
           'name' => 'required',
           'content' => 'required',
@@ -25,7 +28,8 @@ class EmailController extends Controller
           'subject' => $request->subject,
           'name' => $request->name,
           'email' => $request->email,
-          'content' => $request->content
+          'content' => $request->content,
+          'emailFrom' => $request->emailFrom
         ];
 
         Mail::send('contact.email-template', $data, function($message) use ($data) {

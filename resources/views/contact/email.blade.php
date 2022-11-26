@@ -15,19 +15,23 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="mb-2 block text-base font-medium text-[#07074D]">Nombre</label>
-                                <input type="text" name="name" id="name" value="" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                <input type="text" name="name" id="name" value="{{ Auth::user()->name }}" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                             </div>
                             <div class="mb-3" hidden>
                                 <label for="email" class="mb-2 block text-base font-medium text-[#07074D]">Email</label>
                                 <input type="email" name="email" id="email" value="laravel.8.ranch@gmail.com" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                             </div>
                             <div class="mb-3">
+                                <label for="emailFrom" class="mb-2 block text-base font-medium text-[#07074D]">Email</label>
+                                <input type="email" name="emailFrom" id="emailFrom" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                            </div>
+                            <div class="mb-3">
                                 <label for="subject" class="mb-2 block text-base font-medium text-[#07074D]">Asunto</label>
-                                <input type="text" name="subject" id="subject" value="" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                <input type="text" name="subject" id="subject" value="" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                             </div>
                             <div class="mb-3">
                                 <label for="content" class="mb-2 block text-base font-medium text-[#07074D]">Mensaje</label>
-                                <textarea name="content" id="content" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"></textarea>
+                                <textarea name="content" id="content" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"></textarea>
                             </div>
                             <p class="mb-2" style="color: #6875F5;">(*)Todos los campos deben ser rellenados para poder guardar los datos.</p>
                             <div class="text-center">
