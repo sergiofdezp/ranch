@@ -28,7 +28,7 @@ class EmailController extends Controller
           'content' => $request->content
         ];
 
-        Mail::send('email-template', $data, function($message) use ($data) {
+        Mail::send('contact.email-template', $data, function($message) use ($data) {
           $message->to($data['email'])
           ->subject($data['subject']);
         });
