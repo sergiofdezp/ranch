@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\VacunaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::resource('/vacunas', VacunaController::class);
     Route::resource('/home', HomeController::class);
     Route::resource('/email', EmailController::class);
+    Route::resource('/posts', PostController::class);
 
     //Route::get('/email', [App\Http\Controllers\EmailController::class, 'create']);
     Route::post('/email', [App\Http\Controllers\EmailController::class, 'sendEmail'])->name('send.email');
