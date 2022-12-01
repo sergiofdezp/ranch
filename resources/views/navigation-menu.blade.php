@@ -15,20 +15,23 @@
                     <x-jet-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
                         {{ __('Home') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('horses.index') }}" :active="request()->routeIs('horses.index')">
+                        {{ __('Caballos') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('Blog') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('email.index') }}" :active="request()->routeIs('email.index')">
                         {{ __('Contacto') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('horses.index') }}" :active="request()->routeIs('horses.index')">
-                        {{ __('Caballos') }}
-                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                         {{ __('Usuarios') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('vacunas.index') }}" :active="request()->routeIs('vacunas.index')">
                         {{ __('Vacunas') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
+                        {{ __('Roles') }}
                     </x-jet-nav-link>
                 </div>
             </div>

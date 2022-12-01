@@ -17,7 +17,7 @@ class HorseController extends Controller
     public function index()
     {
         $user = Auth::user();
-        if($user->name == 'superadmin'){
+        if($user->name == 'admin'){
             $horses = Horse::all();
         } else{
             $horses = Horse::where('user_id', auth()->id())->get();

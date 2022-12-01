@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
-class UserController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $roles = Role::all();
 
-        return view('users.index', compact('users'));
+        return view('roles.index', compact('roles'));
     }
 
     /**
@@ -28,9 +27,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        $users = User::all();
+        $permissions = Permission::all();
 
-        return view('auth.register');
+        return view('roles.create', compact('permissions'));
     }
 
     /**
@@ -41,10 +40,11 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = $request->all();
-        User::create($user);
+        $role = Role::create(['name' => $request->role]);
 
-        return redirect()->route('users.index')->with('message', 'El usuario ha sido añadido correctamente.');
+        $role->permissions()->sync($request->permissions);
+
+        return redirect()->route('roles')->with('message', 'El rol ha sido creado correctamente.');
     }
 
     /**
@@ -64,10 +64,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Role $role)
     {
-        $roles = Role::all();
-        return view('users.edit', compact('user', 'roles'));
+        $permissions = Permission::all();
+
+        return view('roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -77,14 +78,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Role $role)
     {
-        $user->roles()->sync($request->roles);
-        $user->permissions()->sync($request->permissions);
-        $hors = $request->all();
-        $user->update($hors);
+        $role = Role::find($role->id);
+        $role->name = $request->get('role');
+        $role->save();
+
+        $role->update($request->all());
         
-        return redirect()->route('users.index')->with('message', 'El usuario '. $user->name .' ha sido editado correctamente.');
+        $role->permissions()->sync($request->permissions);
+
+        return redirect()->route('roles.index')->with('message', 'El rol '. $role->name .' ha sido editado correctamente.');
     }
 
     /**
@@ -93,10 +97,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Role $role)
     {
-        $user->delete();
-        
-        return redirect()->route('users.index')->with('message', 'El usuario '. $user->name .' ha sido eliminado correctamente.');
+        $role->delete();
+
+        return redirect()->route('roles.index')->with('message', 'El rol '. $role->name .' ha sido eliminado correctamente.');
     }
 }
