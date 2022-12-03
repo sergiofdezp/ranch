@@ -13,18 +13,18 @@
         <div class="bg"></div>
         <ul class="wrapper">
             @if(Auth::user() == null)
-            <li class="icon icono">
-                <span class="tooltip">Entrar</span>
-                <a href="{{ route('login') }}" :active="request()->routeIs('login')">
-                    <img src="/imagen/icons/login.png">
-                </a>
-            </li>
-            <li class="icon icono">
-                <span class="tooltip">Registrarse</span>
-                <a href="{{ route('register') }}" :active="request()->routeIs('register')">
-                    <img src="/imagen/icons/register.png">
-                </a>
-            </li>
+                <li class="icon icono">
+                    <span class="tooltip">Entrar</span>
+                    <a href="{{ route('login') }}" :active="request()->routeIs('login')">
+                        <img src="/imagen/icons/login.png">
+                    </a>
+                </li>
+                <li class="icon icono">
+                    <span class="tooltip">Registrarse</span>
+                    <a href="{{ route('register') }}" :active="request()->routeIs('register')">
+                        <img src="/imagen/icons/register.png">
+                    </a>
+                </li>
             @endif
             <li class="icon icono">
                 <span class="tooltip">Caballos</span>
