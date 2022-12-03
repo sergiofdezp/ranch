@@ -6,15 +6,11 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home.index') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <img src="/imagen/navLogo.svg" width="50px">
                     </a>
                 </div>
-
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
-                        {{ __('Home') }}
-                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('horses.index') }}" :active="request()->routeIs('horses.index')">
                         {{ __('Caballos') }}
                     </x-jet-nav-link>
@@ -24,15 +20,21 @@
                     <x-jet-nav-link href="{{ route('email.index') }}" :active="request()->routeIs('email.index')">
                         {{ __('Contacto') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
-                        {{ __('Usuarios') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('vacunas.index') }}" :active="request()->routeIs('vacunas.index')">
-                        {{ __('Vacunas') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
-                        {{ __('Roles') }}
-                    </x-jet-nav-link>
+                    @can('users.index')
+                        <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                            {{ __('Usuarios') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('vacunas.index')
+                        <x-jet-nav-link href="{{ route('vacunas.index') }}" :active="request()->routeIs('vacunas.index')">
+                            {{ __('Vacunas') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('roles.index')
+                        <x-jet-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
+                            {{ __('Roles') }}
+                        </x-jet-nav-link>
+                    @endcan
                 </div>
             </div>
 

@@ -24,15 +24,14 @@ Route::get('/', function() {
     return view('home.index');
 })->name('home');
 
+Route::resource('/home', HomeController::class)->names('home');
+
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::resource('/horses', HorseController::class)->names('horses');
     Route::resource('/users', UserController::class)->names('users');
-    Route::resource('/vacunas', VacunaController::class)->names('vacunas');
-    Route::resource('/home', HomeController::class)->names('home');
-    Route::resource('/email', EmailController::class)->names('email');
     Route::resource('/posts', PostController::class)->names('posts');
-    Route::resource('/roles', RoleController::class)->names('roles');
-
-    //Route::get('/email', [App\Http\Controllers\EmailController::class, 'create']);
+    Route::resource('/email', EmailController::class)->names('email');
     Route::post('/email', [App\Http\Controllers\EmailController::class, 'sendEmail'])->name('send.email');
+    Route::resource('/roles', RoleController::class)->names('roles');
+    Route::resource('/vacunas', VacunaController::class)->names('vacunas');
 });

@@ -16,18 +16,28 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // admin 
+        //superadmin
+        DB::table('users')->insert([
+            'name' => "superadmin",
+            'email' => "superadmin@admin.com",
+            'password' => Hash::make('superadmin')
+        ]);
+        DB::table('model_has_roles')->insert([
+            'role_id' => "1",
+            'model_type' => "App\Models\User",
+            'model_id' => "1"
+        ]);
 
+        // admin 
         DB::table('users')->insert([
             'name' => "admin",
             'email' => "admin@admin.com",
             'password' => Hash::make('admin')
         ]);
-
         DB::table('model_has_roles')->insert([
-            'role_id' => "1",
+            'role_id' => "2",
             'model_type' => "App\Models\User",
-            'model_id' => "1"
+            'model_id' => "2"
         ]);
 
         // dueños

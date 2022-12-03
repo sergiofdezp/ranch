@@ -12,6 +12,26 @@
     <body>
         <div class="bg"></div>
         <ul class="wrapper">
+            @if(Auth::user() == null)
+            <li class="icon icono">
+                <span class="tooltip">Entrar</span>
+                <a href="{{ route('login') }}" :active="request()->routeIs('login')">
+                    <img src="/imagen/icons/login.png">
+                </a>
+            </li>
+            <li class="icon icono">
+                <span class="tooltip">Registrarse</span>
+                <a href="{{ route('register') }}" :active="request()->routeIs('register')">
+                    <img src="/imagen/icons/register.png">
+                </a>
+            </li>
+            @endif
+            <li class="icon icono">
+                <span class="tooltip">Caballos</span>
+                <a href="{{ route('horses.index') }}" :active="request()->routeIs('horses.index')">
+                    <img src="/imagen/icons/horse.png">
+                </a>
+            </li>
             <li class="icon icono">
                 <span class="tooltip">Blog</span>
                 <a href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
@@ -24,24 +44,30 @@
                     <img src="/imagen/icons/contacto.png">
                 </a>
             </li>
-            <li class="icon icono">
-                <span class="tooltip">Caballos</span>
-                <a href="{{ route('horses.index') }}" :active="request()->routeIs('horses.index')">
-                    <img src="/imagen/icons/horse.png">
-                </a>
-            </li>
-            <li class="icon icono">
-                <span class="tooltip">Usuarios</span>
-                <a href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
-                    <img src="/imagen/icons/user.png">
-                </a>
-            </li>
-            <li class="icon icono">
-                <span class="tooltip">Vacunas</span>
-                <a href="{{ route('vacunas.index') }}" :active="request()->routeIs('vacunas.index')">
-                    <img src="/imagen/icons/vacuna.png">
-                </a>
-            </li>
+            @can('vacunas.index')
+                <li class="icon icono">
+                    <span class="tooltip">Vacunas</span>
+                    <a href="{{ route('vacunas.index') }}" :active="request()->routeIs('vacunas.index')">
+                        <img src="/imagen/icons/vacuna.png">
+                    </a>
+                </li>
+            @endcan
+            @can('users.index')
+                <li class="icon icono">
+                    <span class="tooltip">Usuarios</span>
+                    <a href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                        <img src="/imagen/icons/users.png">
+                    </a>
+                </li>
+            @endcan
+            @can('roles.index')
+                <li class="icon icono">
+                    <span class="tooltip">Roles</span>
+                    <a href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
+                        <img src="/imagen/icons/role.png">
+                    </a>
+                </li>
+            @endcan
         </ul>
     </body>
 </html>

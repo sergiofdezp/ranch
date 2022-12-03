@@ -7,11 +7,13 @@ use App\Models\Vacuna;
 
 class VacunaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct(){
+        $this->middleware('can:vacunas.index')->only('index');
+        $this->middleware('can:vacunas.create')->only('create', 'store');
+        $this->middleware('can:vacunas.edit')->only('edit', 'update');
+        $this->middleware('can:vacunas.destroy')->only('destroy');
+    }
+
     public function index()
     {
         $vacunas = Vacuna::all();

@@ -16,7 +16,7 @@ class HorseSeeder extends Seeder
     public function run()
     {
         DB::table('horses')->insert([
-            'user_id' => \App\Models\User::all()->where('name', '<>', 'admin')->random()->id,
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'superadmin')->where('name', '<>', 'admin')->random()->id,
             'nombre' => "Nebur",
             'sexo' => "Macho",
             'raza' => "Appaloosa",
@@ -27,7 +27,7 @@ class HorseSeeder extends Seeder
             'imagen' => "20221111_appaloosa_johannes_plenio.jpg",
         ]);
         DB::table('horses')->insert([
-            'user_id' => \App\Models\User::all()->where('name', '<>', 'admin')->random()->id,
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'superadmin')->where('name', '<>', 'admin')->random()->id,
             'nombre' => "Argoya",
             'sexo' => "Hembra",
             'raza' => "Burro de raya",
@@ -38,7 +38,7 @@ class HorseSeeder extends Seeder
             'imagen' => "20221111_burro_raya_chris_carroll.jpg",
         ]);
         DB::table('horses')->insert([
-            'user_id' => \App\Models\User::all()->where('name', '<>', 'admin')->random()->id,
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'superadmin')->where('name', '<>', 'admin')->random()->id,
             'nombre' => "Batman",
             'sexo' => "Macho",
             'raza' => "Frison negro",
@@ -49,7 +49,7 @@ class HorseSeeder extends Seeder
             'imagen' => "20221111_frison_mali_maeder.jpg",
         ]);
         DB::table('horses')->insert([
-            'user_id' => \App\Models\User::all()->where('name', '<>', 'admin')->random()->id,
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'superadmin')->where('name', '<>', 'admin')->random()->id,
             'nombre' => "Liber",
             'sexo' => "Hembra",
             'raza' => "Quarter Mille",
@@ -60,7 +60,7 @@ class HorseSeeder extends Seeder
             'imagen' => "20221111_guillermo_mota_quarter_mille.jpg",
         ]);
         DB::table('horses')->insert([
-            'user_id' => \App\Models\User::all()->where('name', '<>', 'admin')->random()->id,
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'superadmin')->where('name', '<>', 'admin')->random()->id,
             'nombre' => "Lima",
             'sexo' => "Hembra",
             'raza' => "Español",
@@ -71,7 +71,7 @@ class HorseSeeder extends Seeder
             'imagen' => "20221111_helena_spanish.jpg",
         ]);
         DB::table('horses')->insert([
-            'user_id' => \App\Models\User::all()->where('name', '<>', 'admin')->random()->id,
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'superadmin')->where('name', '<>', 'admin')->random()->id,
             'nombre' => "Hasan",
             'sexo' => "Macho",
             'raza' => "P.R. Árabe",
@@ -82,7 +82,7 @@ class HorseSeeder extends Seeder
             'imagen' => "20221111_laraine_davis_arabian.jpg",
         ]);
         DB::table('horses')->insert([
-            'user_id' => \App\Models\User::all()->where('name', '<>', 'admin')->random()->id,
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'superadmin')->where('name', '<>', 'admin')->random()->id,
             'nombre' => "Gazpacho",
             'sexo' => "Macho",
             'raza' => "Percheron",
@@ -93,7 +93,7 @@ class HorseSeeder extends Seeder
             'imagen' => "20221111_percheron.jpg",
         ]);
         DB::table('horses')->insert([
-            'user_id' => \App\Models\User::all()->where('name', '<>', 'admin')->random()->id,
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'superadmin')->where('name', '<>', 'admin')->random()->id,
             'nombre' => "Fujai",
             'sexo' => "Macho",
             'raza' => "P.R. Árabe",
@@ -104,7 +104,7 @@ class HorseSeeder extends Seeder
             'imagen' => "20221111_sarah_olive_arabian.jpg",
         ]);
         DB::table('horses')->insert([
-            'user_id' => \App\Models\User::all()->where('name', '<>', 'admin')->random()->id,
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'superadmin')->where('name', '<>', 'admin')->random()->id,
             'nombre' => "Kiko",
             'sexo' => "Macho",
             'raza' => "Español",
