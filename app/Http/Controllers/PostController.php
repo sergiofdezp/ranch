@@ -43,7 +43,7 @@ class PostController extends Controller
 
         Post::create($posts);
 
-        return redirect()->route('posts.index')->with('message', 'La vacuna ha sido añadida correctamente.');
+        return redirect()->route('posts.index')->with('message', 'El post ha sido añadido correctamente.');
     }
 
     /**
@@ -80,7 +80,7 @@ class PostController extends Controller
         $hors = $request->all();
         $post->update($hors);
         
-        return redirect()->route('posts.index')->with('message', 'La vacuna '. $post->nombre .' ha sido editada correctamente.');
+        return redirect()->route('posts.index')->with('message', 'El post '. $post->nombre .' ha sido editado correctamente.');
     }
 
     /**
@@ -93,6 +93,6 @@ class PostController extends Controller
     {
         $post->delete();
         
-        return redirect()->route('posts.index')->with('message', 'La vacuna '. $post->nombre .' ha sido eliminada correctamente.');
+        return redirect()->route('posts.index')->with('message', 'El post '. $post->nombre .' ha sido eliminado correctamente.');
     }
 }
