@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             VacunaSeeder::class,
-            HorseSeeder::class
+            HorseSeeder::class,
+            PostSeeder::class
         ]);
     }
 }
