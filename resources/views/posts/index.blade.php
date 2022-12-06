@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="py-12">
+    <div class="py-12 bg">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="text-end pb-2">
                 @can('posts.create')
@@ -47,6 +47,16 @@
         </div>
     </div>
 </x-app-layout>
+<style>
+    .bg{
+        display: grid;
+        height: 100%;
+        width: 100%;
+        font-family: "Poppins", sans-serif;
+        place-items: center;
+        background-image: url("/imagen/ranch_bg.jpg");
+    }
+</style>
 <!-- Modal eliminar -->
 <script>
     (function () {
