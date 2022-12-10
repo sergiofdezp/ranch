@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Vacuna;
+use App\Models\Doma;
 
-class VacunaController extends Controller
+class DomaController extends Controller
 {
     public function __construct(){
-        $this->middleware('can:vacunas.index')->only('index');
-        $this->middleware('can:vacunas.create')->only('create', 'store');
-        $this->middleware('can:vacunas.edit')->only('edit', 'update');
-        $this->middleware('can:vacunas.destroy')->only('destroy');
+        $this->middleware('can:domas.index')->only('index');
+        $this->middleware('can:domas.create')->only('create', 'store');
+        $this->middleware('can:domas.edit')->only('edit', 'update');
+        $this->middleware('can:domas.destroy')->only('destroy');
     }
 
     public function index()
     {
-        $vacunas = Vacuna::all();
+        $domas = Doma::all();
 
-        return view('vacunas.index', compact('vacunas'));
+        return view('domas.index', compact('domas'));
     }
 
     /**
@@ -28,9 +28,9 @@ class VacunaController extends Controller
      */
     public function create()
     {
-        $vacunas = Vacuna::all();
+        $domas = Doma::all();
 
-        return view('vacunas.create', compact('vacunas'));
+        return view('domas.create', compact('domas'));
     }
 
     /**
@@ -41,11 +41,11 @@ class VacunaController extends Controller
      */
     public function store(Request $request)
     {
-        $vacunas = $request->all();
+        $domas = $request->all();
 
-        Vacuna::create($vacunas);
+        Doma::create($domas);
 
-        return redirect()->route('vacunas.index')->with('message', 'La vacuna ha sido añadida correctamente.');
+        return redirect()->route('domas.index')->with('message', 'La doma ha sido añadida correctamente.');
     }
 
     /**
@@ -65,9 +65,9 @@ class VacunaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vacuna $vacuna)
+    public function edit(Doma $doma)
     {
-        return view('vacunas.edit', compact('vacuna'));
+        return view('domas.edit', compact('doma'));
     }
 
     /**
@@ -77,12 +77,12 @@ class VacunaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vacuna $vacuna)
+    public function update(Request $request, Doma $doma)
     {
         $hors = $request->all();
-        $vacuna->update($hors);
+        $doma->update($hors);
         
-        return redirect()->route('vacunas.index')->with('message', 'La '. $vacuna->nombre .' ha sido editada correctamente.');
+        return redirect()->route('domas.index')->with('message', 'La '. $doma->nombre .' ha sido editada correctamente.');
     }
 
     /**
@@ -91,10 +91,10 @@ class VacunaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vacuna $vacuna)
+    public function destroy(Doma $doma)
     {
-        $vacuna->delete();
+        $doma->delete();
         
-        return redirect()->route('vacunas.index')->with('message', 'La '. $vacuna->nombre .' ha sido eliminada correctamente.');
+        return redirect()->route('domas.index')->with('message', 'La '. $doma->nombre .' ha sido eliminada correctamente.');
     }
 }

@@ -2,8 +2,8 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="text-end pb-2">
-                @can('vacunas.create')
-                    <a href="{{ route('vacunas.create')}}" class="btn btn-success" style="background-color: #11C163; border: none;">
+                @can('herraje.create')
+                    <a href="{{ route('herraje.create')}}" class="btn btn-success" style="background-color: #11C163; border: none;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -19,30 +19,30 @@
                 <table class="table table-striped table-fixed w-full mb-0" id="tabla_horses" style="vertical-align:middle;">
                     <thead style="background-color: #6875f5; color: #fff;">
                         <tr>
-                            <th class="col">Nombre</th>    
-                            <th class="col">Descripcion</th>
-                            @can('vacunas.edit')
+                            <th class="col">ID</th>
+                            <th class="col">Nombre</th>
+                            @can('herraje.edit')
                                 <th class="col text-end">Acciones</th>
                             @endcan
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($vacunas as $vacuna)
+                        @foreach ($herrajes as $herraje)
                             <tr>
-                                <td>{{$vacuna->nombre}}</td>
-                                <td>{{$vacuna->descripcion}}</td>
-                                @can('vacunas.edit')
+                                <td>{{$herraje->id}}</td>
+                                <td>{{$herraje->nombre}}</td>
+                                @can('herraje.edit')
                                     <td class="">
                                         <div class="flex justify-end">
-                                            @can('vacunas.edit')
-                                                <a href="{{ route('vacunas.edit', $vacuna->id)}}" class="btn btn-dark btn-sm mx-1" style="background-color: #FF9218; border: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            @can('herraje.edit')
+                                                <a href="{{ route('herraje.edit', $herraje->id)}}" class="btn btn-dark btn-sm mx-1" style="background-color: #FF9218; border: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                                     <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                                                     <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
                                                     </svg>
                                                 </a>
                                             @endcan
-                                            @can('vacunas.destroy')
-                                                <form action="{{ route('vacunas.destroy', $vacuna->id)}}" class="formEliminar" method="POST">
+                                            @can('herraje.destroy')
+                                                <form action="{{ route('herraje.destroy', $herraje->id)}}" class="formEliminar" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm" style="background-color: #B9314F; border: none;"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
@@ -73,7 +73,7 @@
                 event.preventDefault()
                 event.stopPropagation()        
                 Swal.fire({
-                    title: 'Se borrará esta vacuna y todos los caballos que la tengan asignada. ¿Estás seguro?',
+                    title: 'Se borrará este herraje y todos los caballos que lo tengan asignado. ¿Estás seguro?',
                     icon: 'info',
                     showCancelButton: true,
                     confirmButtonColor: '#20c997',

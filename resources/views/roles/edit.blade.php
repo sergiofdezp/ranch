@@ -14,7 +14,7 @@
                             <label for="nombre" class="mb-2 block text-base font-medium text-[#07074D]">Permisos</label>
                             <div class="form-check">
                                 @foreach ($permissions as $permission)
-                                    <input class="form-check-input" type="checkbox" name="permissions[]" value="{{$permission->id}}" 
+                                    <input class="form-check-input" type="checkbox" name="permissions[]" value="{{$permission->id}}"
                                         @foreach($role->permissions as $permissions)
                                             @if ($permissions->id == $permission->id)
                                                 checked

@@ -7,13 +7,18 @@
                         <form action="{{ route('horses.update', $horse->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
+
                             <div class="mb-3">
                                 <label for="nombre" class="mb-2 block text-base font-medium text-[#07074D]">Nombre</label>
                                 <input type="text" name="nombre" id="nombre" value="{{$horse->nombre}}" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                             </div>
-                            <div class="mb-3">
-                                <label for="sexo" class="mb-2 block text-base font-medium text-[#07074D]">Sexo</label>
-                                <input type="text" name="sexo" id="sexo" value="{{$horse->sexo}}" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                            <div class="mb-4">
+                                <label for="sexo" class="block text-base font-medium text-[#07074D]">Sexo</label>
+                                <select name="sexo" id="sexo" value="{{$horse->sexo}}" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                    <option value="" disabled>Seleccione el sexo del caballo</option>
+                                    <option value="Macho" @if($horse->sexo=="Macho")selected @endif>Macho</option>
+                                    <option value="Hembra" @if($horse->sexo=="Hembra")selected @endif>Hembra</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="raza" class="mb-2 block text-base font-medium text-[#07074D]">Raza</label>
@@ -23,30 +28,30 @@
                                 <label for="edad" class="mb-2 block text-base font-medium text-[#07074D]">Edad</label>
                                 <input type="number" name="edad" id="edad" value="{{$horse->edad}}" min=0 required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                             </div>
-                            <div class="mb-3">
-                                <label for="doma" class="mb-2 block text-base font-medium text-[#07074D]">Doma</label>
-                                <select name="doma" id="doma" value="{{$horse->doma}}" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
-                                    <option value="" disabled>Seleccione una doma</option>
-                                    <option value="No" @if($horse->doma=="No")selected @endif>No</option>
-                                    <option value="Doma natural" @if($horse->doma=="Doma natural")selected @endif>Doma natural</option>
-                                    <option value="Doma vaquera" @if($horse->doma=="Doma vaquera")selected @endif>Doma vaquera</option>
-                                    <option value="Doma classics" @if($horse->doma=="Doma classics")selected @endif>Doma classics</option>
-                                </select>
-                            </div>
-                            <div class="mb-4">
-                                <label for="herraje" class="block text-base font-medium text-[#07074D]">Herraje</label>
-                                <select name="herraje" id="herraje" value="{{$horse->herraje}}" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
-                                    <option value="" disabled>Seleccione un tipo de herraje</option>
-                                    <option value="No" @if($horse->herraje=="No")selected @endif>No</option>
-                                    <option value="Herraduras de hierro" @if($horse->herraje=="Herraduras de hierro")selected @endif>Herraduras de hierro</option>
-                                    <option value="Zapatos de plástico" @if($horse->herraje=="Zapatos de plástico")selected @endif>Zapatos de plástico</option>
-                                </select>
-                            </div>
                             <div class="mb-4">
                                 <label for="vacuna" class="mb-2 block text-base font-medium text-[#07074D]">Vacuna</label>
                                 <select name="vacuna_id" id="vacuna_id" required="required" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                    <option value="{{$horse->vacunas->nombre}}" selected disabled>{{$horse->vacunas->nombre}}</option>
                                     @foreach ($vacunas as $vacuna)
                                         <option value="{{$vacuna->id}}">{{$vacuna->nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="doma" class="mb-2 block text-base font-medium text-[#07074D]">Doma</label>
+                                <select name="doma_id" id="doma_id" required="required" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                    <option value="{{$horse->domas->nombre}}" selected disabled>{{$horse->domas->nombre}}</option>
+                                    @foreach ($domas as $doma)
+                                        <option value="{{$doma->id}}">{{$doma->nombre}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="herraje" class="mb-2 block text-base font-medium text-[#07074D]">Herraje</label>
+                                <select name="herraje_id" id="herraje_id" required="required" class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                    <option value="{{$horse->herrajes->nombre}}" selected disabled>{{$horse->herrajes->nombre}}</option>    
+                                    @foreach ($herrajes as $herraje)
+                                        <option value="{{$herraje->id}}">{{$herraje->nombre}}</option>
                                     @endforeach
                                 </select>
                             </div>

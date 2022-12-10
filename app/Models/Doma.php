@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Vacuna extends Model
+class Doma extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
 
-    protected $fillable = ['nombre', 'descripcion'];
+    protected $fillable = ['nombre'];
 
     public function horses(){
         return $this->hasOne(Horse::class, 'id');

@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('home.index') }}">
-                        <img src="/imagen/navLogo.svg" width="50px">
+                        <img src="/imagen/logo.svg" width="35px">
                     </a>
                 </div>
                 <!-- Navigation Links -->
@@ -14,20 +14,24 @@
                     <x-jet-nav-link href="{{ route('horses.index') }}" :active="request()->routeIs('horses.index')">
                         {{ __('Caballos') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
-                        {{ __('Blog') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('email.index') }}" :active="request()->routeIs('email.index')">
-                        {{ __('Contacto') }}
-                    </x-jet-nav-link>
-                    @can('users.index')
-                        <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
-                            {{ __('Usuarios') }}
-                        </x-jet-nav-link>
-                    @endcan
                     @can('vacunas.index')
                         <x-jet-nav-link href="{{ route('vacunas.index') }}" :active="request()->routeIs('vacunas.index')">
                             {{ __('Vacunas') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('domas.index')
+                        <x-jet-nav-link href="{{ route('domas.index') }}" :active="request()->routeIs('domas.index')">
+                            {{ __('Domas') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('herraje.index')
+                        <x-jet-nav-link href="{{ route('herraje.index') }}" :active="request()->routeIs('herraje.index')">
+                            {{ __('Herrajes') }}
+                        </x-jet-nav-link>
+                    @endcan
+                    @can('users.index')
+                        <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                            {{ __('Usuarios') }}
                         </x-jet-nav-link>
                     @endcan
                     @can('roles.index')
@@ -35,6 +39,12 @@
                             {{ __('Roles') }}
                         </x-jet-nav-link>
                     @endcan
+                    <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                        {{ __('Blog') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('email.index') }}" :active="request()->routeIs('email.index')">
+                        {{ __('Contacto') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 
@@ -113,11 +123,11 @@
                         <x-slot name="content">
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Account') }}
+                                {{ __('Gestionar cuenta') }}
                             </div>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                                {{ __('Perfil') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -134,7 +144,7 @@
 
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                          @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }}
+                                    {{ __('Salir') }}
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>

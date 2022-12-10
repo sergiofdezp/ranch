@@ -12,7 +12,7 @@
             @if(session('message'))
                 <div class="alert alert-success">{{session('message')}}</div>
             @endif
-            <input type="text" id="horseInput" onkeyup="myFunction()" placeholder="Buscar por nombre...">
+            <input type="text" id="horseInput" onkeyup="myFunction()" placeholder="Buscar por dueño...">
             <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
                 <table class="table table-striped table-fixed w-full mb-0" id="tabla_horses" style="vertical-align:middle;">
                     <thead style="background-color: #6875f5; color: #fff;">
@@ -22,7 +22,6 @@
                             <th class="col">Sexo</th>
                             <th class="col">Raza</th>
                             <th class="col">Edad</th>
-                            <th class="col">Doma</th>
                             <th class="col">Imagen</th>
                             @can('horses.edit')
                                 <th class="col text-end">Acciones</th>
@@ -37,10 +36,15 @@
                                 <td>{{$horse->sexo}}</td>
                                 <td>{{$horse->raza}}</td>
                                 <td>{{$horse->edad}}</td>
-                                <td>{{$horse->doma}}</td>
-                                <td>
-                                    <img src="/imagen/horses/{{$horse->imagen}}" width="100%">    
-                                </td>
+                                @if($horse->imagen != null)
+                                    <td>
+                                        <img src="/imagen/horses/{{$horse->imagen}}" width="100%">    
+                                    </td>
+                                    @else
+                                    <td>
+                                        <p>Sin imagen</p>   
+                                    </td>
+                                @endif
                                 @can('horses.edit')
                                     <td class="">
                                         <div class="flex justify-end">

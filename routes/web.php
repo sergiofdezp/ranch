@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HorseController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VacunaController;
+use App\Http\Controllers\DomaController;
+use App\Http\Controllers\HerrajeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\PostController;
@@ -34,4 +36,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::post('/email', [App\Http\Controllers\EmailController::class, 'sendEmail'])->name('send.email');
     Route::resource('/roles', RoleController::class)->names('roles');
     Route::resource('/vacunas', VacunaController::class)->names('vacunas');
+    Route::resource('/domas', DomaController::class)->names('domas');
+    Route::resource('/herraje', HerrajeController::class)->names('herraje');
 });

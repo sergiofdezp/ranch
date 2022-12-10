@@ -18,8 +18,8 @@ class UserSeeder extends Seeder
     {
         //superadmin
         DB::table('users')->insert([
-            'name' => "superadmin",
-            'email' => "superadmin@admin.com",
+            'name' => "Superadmin",
+            'email' => "superadmin@ranch.com",
             'password' => Hash::make('superadmin')
         ]);
         DB::table('model_has_roles')->insert([
@@ -30,8 +30,8 @@ class UserSeeder extends Seeder
 
         // admin 
         DB::table('users')->insert([
-            'name' => "admin",
-            'email' => "admin@admin.com",
+            'name' => "Admin",
+            'email' => "admin@ranch.com",
             'password' => Hash::make('admin')
         ]);
         DB::table('model_has_roles')->insert([
@@ -40,21 +40,62 @@ class UserSeeder extends Seeder
             'model_id' => "2"
         ]);
 
+        // encargado 
+        DB::table('users')->insert([
+            'name' => "Encargado",
+            'email' => "encargado@ranch.com",
+            'password' => Hash::make('encargado')
+        ]);
+        DB::table('model_has_roles')->insert([
+            'role_id' => "3",
+            'model_type' => "App\Models\User",
+            'model_id' => "3"
+        ]);
+
+        // blogger 
+        DB::table('users')->insert([
+            'name' => "Blogger",
+            'email' => "blogger@ranch.com",
+            'password' => Hash::make('blogger')
+        ]);
+        DB::table('model_has_roles')->insert([
+            'role_id' => "4",
+            'model_type' => "App\Models\User",
+            'model_id' => "4"
+        ]);
+
+        // domador
+        DB::table('users')->insert([
+            'name' => "Domador",
+            'email' => "domador@ranch.com",
+            'password' => Hash::make('domador')
+        ]);
+        DB::table('model_has_roles')->insert([
+            'role_id' => "5",
+            'model_type' => "App\Models\User",
+            'model_id' => "5"
+        ]);
+
         // dueños
         DB::table('users')->insert([
             'name' => "Jesús Colina",
             'email' => "jesus@colina.com",
-            'password' => Hash::make('!jesusColina')
+            'password' => Hash::make('jesus')
         ]);
         DB::table('users')->insert([
             'name' => "Luis Álvarez",
-            'email' => "luis@alvarez.com",
-            'password' => Hash::make('!luisAlvarez')
+            'email' => "aurora@alvarez.com",
+            'password' => Hash::make('aurora')
         ]);
         DB::table('users')->insert([
-            'name' => "Franciso López",
-            'email' => "francisco@lopez.com",
-            'password' => Hash::make('!franciscoLopez')
+            'name' => "Aitana González",
+            'email' => "aitana@gonzalez.com",
+            'password' => Hash::make('aitana')
+        ]);
+        DB::table('users')->insert([
+            'name' => "Aurora Peláez",
+            'email' => "aurora@pelaez.com",
+            'password' => Hash::make('aurora')
         ]);
     }
 }

@@ -20,10 +20,10 @@ class CreateHorsesTable extends Migration
             $table->string('sexo');
             $table->string('raza');
             $table->string('edad');
-            $table->string('doma');
-            $table->string('herraje');
-            $table->foreignId('vacuna_id')->nullable()->constrained('vacunas');
-            $table->string('imagen');
+            $table->foreignId('doma_id')->nullable()->constrained('domas')->onDelete('cascade');
+            $table->foreignId('vacuna_id')->nullable()->constrained('vacunas')->onDelete('cascade');
+            $table->foreignId('herraje_id')->nullable()->constrained('herrajes')->onDelete('cascade');
+            $table->string('imagen')->nullable();
             $table->timestamps();
         });
     }

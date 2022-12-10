@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             VacunaSeeder::class,
+            DomaSeeder::class,
+            HerrajeSeeder::class,
             HorseSeeder::class,
             PostSeeder::class
         ]);

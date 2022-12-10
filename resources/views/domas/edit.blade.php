@@ -4,15 +4,12 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="flex items-center justify-center p-12">
                     <div class="mx-auto w-full max-w-[550px]">
-                        <form action="{{ route('vacunas.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('domas.update', $doma->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
                             <div class="mb-3">
                                 <label for="nombre" class="mb-2 block text-base font-medium text-[#07074D]">Nombre</label>
-                                <input type="text" name="nombre" id="nombre" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
-                            </div>
-                            <div class="mb-3">
-                                <label for="descripcion" class="mb-2 block text-base font-medium text-[#07074D]">Descripcion</label>
-                                <input type="text" name="descripcion" id="descripcion" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
+                                <input type="text" name="nombre" id="nombre" value="{{$doma->nombre}}" required class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-2 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
                             </div>
                             <p class="mb-2" style="color: #6875F5;">(*)Todos los campos deben ser rellenados para poder guardar los datos.</p>
                             <div class="text-center">

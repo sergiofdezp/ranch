@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Vacuna;
+use App\Models\Herraje;
 
-class VacunaController extends Controller
+class HerrajeController extends Controller
 {
     public function __construct(){
-        $this->middleware('can:vacunas.index')->only('index');
-        $this->middleware('can:vacunas.create')->only('create', 'store');
-        $this->middleware('can:vacunas.edit')->only('edit', 'update');
-        $this->middleware('can:vacunas.destroy')->only('destroy');
+        $this->middleware('can:herraje.index')->only('index');
+        $this->middleware('can:herraje.create')->only('create', 'store');
+        $this->middleware('can:herraje.edit')->only('edit', 'update');
+        $this->middleware('can:herraje.destroy')->only('destroy');
     }
 
     public function index()
     {
-        $vacunas = Vacuna::all();
+        $herrajes = Herraje::all();
 
-        return view('vacunas.index', compact('vacunas'));
+        return view('herrajes.index', compact('herrajes'));
     }
 
     /**
@@ -28,9 +28,9 @@ class VacunaController extends Controller
      */
     public function create()
     {
-        $vacunas = Vacuna::all();
+        $herrajes = Herraje::all();
 
-        return view('vacunas.create', compact('vacunas'));
+        return view('herraje.create', compact('herrajes'));
     }
 
     /**
@@ -41,11 +41,11 @@ class VacunaController extends Controller
      */
     public function store(Request $request)
     {
-        $vacunas = $request->all();
+        $herrajes = $request->all();
 
-        Vacuna::create($vacunas);
+        Herraje::create($herrajes);
 
-        return redirect()->route('vacunas.index')->with('message', 'La vacuna ha sido añadida correctamente.');
+        return redirect()->route('herraje.index')->with('message', 'El herraje ha sido añadido correctamente.');
     }
 
     /**
@@ -65,9 +65,9 @@ class VacunaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Vacuna $vacuna)
+    public function edit(Herraje $herraje)
     {
-        return view('vacunas.edit', compact('vacuna'));
+        return view('herrajes.edit', compact('herraje'));
     }
 
     /**
@@ -77,12 +77,12 @@ class VacunaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Vacuna $vacuna)
+    public function update(Request $request, Herraje $herraje)
     {
         $hors = $request->all();
-        $vacuna->update($hors);
+        $herraje->update($hors);
         
-        return redirect()->route('vacunas.index')->with('message', 'La '. $vacuna->nombre .' ha sido editada correctamente.');
+        return redirect()->route('herraje.index')->with('message', 'La '. $herraje->nombre .' ha sido editado correctamente.');
     }
 
     /**
@@ -91,10 +91,10 @@ class VacunaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Vacuna $vacuna)
+    public function destroy(Herraje $herraje)
     {
-        $vacuna->delete();
+        $herraje->delete();
         
-        return redirect()->route('vacunas.index')->with('message', 'La '. $vacuna->nombre .' ha sido eliminada correctamente.');
+        return redirect()->route('herraje.index')->with('message', 'El '. $herraje->nombre .' ha sido eliminado correctamente.');
     }
 }
