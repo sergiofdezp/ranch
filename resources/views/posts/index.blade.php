@@ -16,7 +16,10 @@
             @endif
             <div class="row">
                 @foreach ($posts as $post)
-                    <div class="card col-6 my-1">
+                    <div class="card col-6 my-1" style="background-color: transparent; border: none;">
+                        @if($post->imagen != null)
+                            <img src="/imagen/posts/{{$post->imagen}}" width="100%">
+                        @endif
                         <div class="card-body">
                             @can('posts.edit')
                                 <td class="">
@@ -54,7 +57,7 @@
         width: 100%;
         font-family: "Poppins", sans-serif;
         place-items: center;
-        background-image: url("/imagen/ranch_bg.jpg");
+        background-color: Bisque;
     }
 </style>
 <!-- Modal eliminar -->

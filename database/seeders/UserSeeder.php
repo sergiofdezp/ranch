@@ -76,6 +76,18 @@ class UserSeeder extends Seeder
             'model_id' => "5"
         ]);
 
+        // herrador
+        DB::table('users')->insert([
+            'name' => "Herrador",
+            'email' => "herrador@ranch.com",
+            'password' => Hash::make('herrador')
+        ]);
+        DB::table('model_has_roles')->insert([
+            'role_id' => "6",
+            'model_type' => "App\Models\User",
+            'model_id' => "6"
+        ]);
+
         // dueños
         DB::table('users')->insert([
             'name' => "Jesús Colina",

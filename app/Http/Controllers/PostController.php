@@ -40,9 +40,13 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $posts = $request->all();
-
+        if($imagen = $request->file('imagen')) {
+            $rutaGuardarImg = 'imagen/posts/';
+            $imagenPost = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imagenPost);
+            $posts['imagen'] = "$imagenPost";             
+        }
         Post::create($posts);
-
         return redirect()->route('posts.index')->with('message', 'El post ha sido añadido correctamente.');
     }
 
@@ -78,9 +82,17 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $hors = $request->all();
-        $post->update($hors);
+        if($imagen = $request->file('imagen')){
+           $rutaGuardarImg = 'imagen/posts/';
+           $imagenPost = date('YmdHis') . "." . $imagen->getClientOriginalExtension(); 
+           $imagen->move($rutaGuardarImg, $imagenPost);
+           $hors['imagen'] = "$imagenPost";
+        }else{
+           unset($hors['imagen']);
+        }
+        $horse->update($hors);
         
-        return redirect()->route('posts.index')->with('message', 'El post '. $post->nombre .' ha sido editado correctamente.');
+        return redirect()->route('posts.index')->with('message', $post->nombre .' ha sido editado correctamente.');
     }
 
     /**

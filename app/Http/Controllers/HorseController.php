@@ -41,6 +41,7 @@ class HorseController extends Controller
         $vacunas = Vacuna::all();
         $domas = Doma::all();
         $herrajes = Herraje::all();
+        
         return view('horses.create', compact('user', 'vacunas', 'domas', 'herrajes'));
     }
 
@@ -59,8 +60,9 @@ class HorseController extends Controller
             $imagen->move($rutaGuardarImg, $imagenHorse);
             $horse['imagen'] = "$imagenHorse";             
         }
-        //dd($horse);
+
         Horse::create($horse);
+
         return redirect()->route('horses.index')->with('message', 'El caballo ha sido añadido correctamente.');
     }
 
@@ -86,6 +88,7 @@ class HorseController extends Controller
         $vacunas = Vacuna::all();
         $domas = Doma::all();
         $herrajes = Herraje::all();
+
         return view('horses.edit', compact('horse', 'vacunas', 'domas', 'herrajes'));
     }
 

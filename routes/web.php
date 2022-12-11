@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ExposicionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,4 +39,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::resource('/vacunas', VacunaController::class)->names('vacunas');
     Route::resource('/domas', DomaController::class)->names('domas');
     Route::resource('/herraje', HerrajeController::class)->names('herraje');
+    Route::resource('/exposicion', ExposicionController::class)->names('exposicion');
 });

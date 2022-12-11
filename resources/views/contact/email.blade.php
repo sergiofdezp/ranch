@@ -1,6 +1,6 @@
 
 <x-app-layout>
-    <div class="py-12">
+    <div class="py-12 bg">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
             <div class="map">
@@ -44,3 +44,13 @@
         </div>
     </div>
 </x-app-layout>
+<style>
+    .bg{
+        display: grid;
+        height: 100%;
+        width: 100%;
+        font-family: "Poppins", sans-serif;
+        place-items: center;
+        background-color: Bisque;
+    }
+</style>

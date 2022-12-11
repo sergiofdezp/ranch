@@ -39,6 +39,9 @@
                             {{ __('Roles') }}
                         </x-jet-nav-link>
                     @endcan
+                    <x-jet-nav-link href="{{ route('exposicion.index') }}" :active="request()->routeIs('exposicion.index')">
+                        {{ __('Exposicion') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
                         {{ __('Blog') }}
                     </x-jet-nav-link>

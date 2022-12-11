@@ -72,28 +72,6 @@ class HorseSeeder extends Seeder
         ]);
         DB::table('horses')->insert([
             'user_id' => \App\Models\User::all()->where('name', '<>', 'Superadmin')->where('name', '<>', 'Admin')->where('name', '<>', 'Encargado')->where('name', '<>', 'Blogger')->random()->id,
-            'nombre' => "Hasan",
-            'sexo' => "Macho",
-            'raza' => "P.R. Árabe",
-            'edad' => "4",
-            'doma_id' => 1,
-            'vacuna_id' => 1,
-            'herraje_id' => 1,
-            'imagen' => "20221111_laraine_davis_arabian.jpg",
-        ]);
-        DB::table('horses')->insert([
-            'user_id' => \App\Models\User::all()->where('name', '<>', 'Superadmin')->where('name', '<>', 'Admin')->where('name', '<>', 'Encargado')->where('name', '<>', 'Blogger')->random()->id,
-            'nombre' => "Gazpacho",
-            'sexo' => "Macho",
-            'raza' => "Percheron",
-            'edad' => "14",
-            'doma_id' => 3,
-            'vacuna_id' => 1,
-            'herraje_id' => 2,
-            'imagen' => "20221111_percheron.jpg",
-        ]);
-        DB::table('horses')->insert([
-            'user_id' => \App\Models\User::all()->where('name', '<>', 'Superadmin')->where('name', '<>', 'Admin')->where('name', '<>', 'Encargado')->where('name', '<>', 'Blogger')->random()->id,
             'nombre' => "Fujai",
             'sexo' => "Macho",
             'raza' => "P.R. Árabe",
@@ -113,6 +91,83 @@ class HorseSeeder extends Seeder
             'vacuna_id' => 1,
             'herraje_id' => 1,
             'imagen' => "20221111_spanish.jpg",
+        ]);
+        DB::table('horses')->insert([
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'Superadmin')->where('name', '<>', 'Admin')->where('name', '<>', 'Encargado')->where('name', '<>', 'Blogger')->random()->id,
+            'nombre' => "Nabor",
+            'sexo' => "Macho",
+            'raza' => "Español",
+            'edad' => "4",
+            'doma_id' => 2,
+            'vacuna_id' => 3,
+            'herraje_id' => 2,
+            'imagen' => "20221111_español_bruno_thethe.jpg",
+        ]);
+        DB::table('horses')->insert([
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'Superadmin')->where('name', '<>', 'Admin')->where('name', '<>', 'Encargado')->where('name', '<>', 'Blogger')->random()->id,
+            'nombre' => "Bambi",
+            'sexo' => "Hembra",
+            'raza' => "Pony Galleguito",
+            'edad' => "10",
+            'doma_id' => 1,
+            'vacuna_id' => 2,
+            'herraje_id' => 1,
+            'imagen' => "20221111_pony_galleguito_francesco_ungaro.jpg",
+        ]);
+        DB::table('horses')->insert([
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'Superadmin')->where('name', '<>', 'Admin')->where('name', '<>', 'Encargado')->where('name', '<>', 'Blogger')->random()->id,
+            'nombre' => "Sira",
+            'sexo' => "Hembra",
+            'raza' => "Español",
+            'edad' => "12",
+            'doma_id' => 1,
+            'vacuna_id' => 3,
+            'herraje_id' => 1,
+            'imagen' => "20221111_español_mabel_amber.jpg",
+        ]); 
+        DB::table('horses')->insert([
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'Superadmin')->where('name', '<>', 'Admin')->where('name', '<>', 'Encargado')->where('name', '<>', 'Blogger')->random()->id,
+            'nombre' => "Bolero",
+            'sexo' => "Macho",
+            'raza' => "Percheron",
+            'edad' => "2",
+            'doma_id' => 3,
+            'vacuna_id' => 1,
+            'herraje_id' => 2,
+            'imagen' => "20221111_percheron_rolandas_augutis.jpg",
+        ]);
+        DB::table('horses')->insert([
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'Superadmin')->where('name', '<>', 'Admin')->where('name', '<>', 'Encargado')->where('name', '<>', 'Blogger')->random()->id,
+            'nombre' => "Tornado",
+            'sexo' => "Macho",
+            'raza' => "Shire",
+            'edad' => "7",
+            'doma_id' => 3,
+            'vacuna_id' => 3,
+            'herraje_id' => 2,
+            'imagen' => "20221111_shire.jpg",
+        ]);
+        DB::table('horses')->insert([
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'Superadmin')->where('name', '<>', 'Admin')->where('name', '<>', 'Encargado')->where('name', '<>', 'Blogger')->random()->id,
+            'nombre' => "Hasan",
+            'sexo' => "Macho",
+            'raza' => "P.R. Árabe",
+            'edad' => "4",
+            'doma_id' => 1,
+            'vacuna_id' => 1,
+            'herraje_id' => 1,
+            'imagen' => "20221111_laraine_davis_arabian.jpg",
+        ]);
+        DB::table('horses')->insert([
+            'user_id' => \App\Models\User::all()->where('name', '<>', 'Superadmin')->where('name', '<>', 'Admin')->where('name', '<>', 'Encargado')->where('name', '<>', 'Blogger')->random()->id,
+            'nombre' => "Gazpacho",
+            'sexo' => "Macho",
+            'raza' => "Percheron",
+            'edad' => "14",
+            'doma_id' => 3,
+            'vacuna_id' => 1,
+            'herraje_id' => 2,
+            'imagen' => "20221111_percheron.jpg",
         ]);
     }
 }

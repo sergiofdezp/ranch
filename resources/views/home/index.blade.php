@@ -32,23 +32,27 @@
                     <img src="/imagen/icons/horse.png">
                 </a>
             </li>
-            <li class="icon icono">
-                <span class="tooltip">Blog</span>
-                <a href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
-                    <img src="/imagen/icons/blog.png">
-                </a>
-            </li>
-            <li class="icon icono">
-                <span class="tooltip">Contacto</span>
-                <a href="{{ route('email.index') }}" :active="request()->routeIs('email.index')">
-                    <img src="/imagen/icons/contacto.png">
-                </a>
-            </li>
             @can('vacunas.index')
                 <li class="icon icono">
                     <span class="tooltip">Vacunas</span>
                     <a href="{{ route('vacunas.index') }}" :active="request()->routeIs('vacunas.index')">
                         <img src="/imagen/icons/vacuna.png">
+                    </a>
+                </li>
+            @endcan
+            @can('domas.index')
+                <li class="icon icono">
+                    <span class="tooltip">Domas</span>
+                    <a href="{{ route('domas.index') }}" :active="request()->routeIs('domas.index')">
+                        <img src="/imagen/icons/doma.png">
+                    </a>
+                </li>
+            @endcan
+            @can('herraje.index')
+                <li class="icon icono">
+                    <span class="tooltip">Herraje</span>
+                    <a href="{{ route('herraje.index') }}" :active="request()->routeIs('herraje.index')">
+                        <img src="/imagen/icons/herradura.png">
                     </a>
                 </li>
             @endcan
@@ -68,6 +72,18 @@
                     </a>
                 </li>
             @endcan
+            <li class="icon icono">
+                <span class="tooltip">Blog</span>
+                <a href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                    <img src="/imagen/icons/blog.png">
+                </a>
+            </li>
+            <li class="icon icono">
+                <span class="tooltip">Contacto</span>
+                <a href="{{ route('email.index') }}" :active="request()->routeIs('email.index')">
+                    <img src="/imagen/icons/contacto.png">
+                </a>
+            </li>
         </ul>
     </body>
 </html>
