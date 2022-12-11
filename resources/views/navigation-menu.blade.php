@@ -174,8 +174,42 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('home.index') }}" :active="request()->routeIs('home.index')">
-                {{ __('Home') }}
+            <x-jet-responsive-nav-link href="{{ route('horses.index') }}" :active="request()->routeIs('horses.index')">
+                {{ __('Caballos') }}
+            </x-jet-responsive-nav-link>
+            @can('vacunas.index')
+                <x-jet-responsive-nav-link href="{{ route('vacunas.index') }}" :active="request()->routeIs('vacunas.index')">
+                    {{ __('Vacunas') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('domas.index')
+                <x-jet-responsive-nav-link href="{{ route('domas.index') }}" :active="request()->routeIs('domas.index')">
+                    {{ __('Domas') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('herraje.index')
+                <x-jet-responsive-nav-link href="{{ route('herraje.index') }}" :active="request()->routeIs('herraje.index')">
+                    {{ __('Herraje') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('users.index')
+                <x-jet-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                    {{ __('Usuarios') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            @can('roles.index')
+                <x-jet-responsive-nav-link href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
+                    {{ __('Roles') }}
+                </x-jet-responsive-nav-link>
+            @endcan
+            <x-jet-responsive-nav-link href="{{ route('exposicion.index') }}" :active="request()->routeIs('exposicion.index')">
+                {{ __('Exposicion') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                {{ __('Blog') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('email.index') }}" :active="request()->routeIs('email.index')">
+                {{ __('Email') }}
             </x-jet-responsive-nav-link>
         </div>
 
