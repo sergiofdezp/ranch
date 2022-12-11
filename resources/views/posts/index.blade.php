@@ -59,6 +59,14 @@
         place-items: center;
         background-color: Bisque;
     }
+    @media screen and (max-width: 500px) {
+        .row{
+            margin-left: 1px;
+        }
+        .bg{
+            background-color: white;
+        }
+    }
 </style>
 <!-- Modal eliminar -->
 <script>

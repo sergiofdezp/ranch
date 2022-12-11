@@ -19,9 +19,9 @@
                         <tr>
                             <th class="col">Dueño</th>    
                             <th class="col">Nombre</th>
-                            <th class="col">Sexo</th>
-                            <th class="col">Raza</th>
-                            <th class="col">Edad</th>
+                            <th class="col sexo">Sexo</th>
+                            <th class="col raza">Raza</th>
+                            <th class="col edad">Edad</th>
                             <th class="col">Imagen</th>
                             @can('horses.edit')
                                 <th class="col text-end">Acciones</th>
@@ -33,9 +33,9 @@
                             <tr>
                                 <td>{{$horse->user->name}}</td>
                                 <td>{{$horse->nombre}}</td>
-                                <td>{{$horse->sexo}}</td>
-                                <td>{{$horse->raza}}</td>
-                                <td>{{$horse->edad}}</td>
+                                <td class="sexo">{{$horse->sexo}}</td>
+                                <td class="raza">{{$horse->raza}}</td>
+                                <td class="edad">{{$horse->edad}}</td>
                                 @if($horse->imagen != null)
                                     <td>
                                         <img src="/imagen/horses/{{$horse->imagen}}" width="100%">    
@@ -138,5 +138,10 @@
         border: 1px solid #ddd; /* Add a grey border */
         margin-bottom: 12px; /* Add some space below the input */
         border-radius: 7px;
+    }
+    @media screen and (max-width: 500px) {
+        .sexo, .raza, .edad{
+            display: none;
+        }
     }
 </style>

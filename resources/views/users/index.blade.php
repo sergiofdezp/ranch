@@ -20,7 +20,7 @@
                     <thead style="background-color: #6875f5; color: #fff;">
                         <tr>
                             <th class="col">Nombre</th>    
-                            <th class="col">Email</th>
+                            <th class="col email">Email</th>
                             @can('users.edit')
                                 <th class="col text-end">Acciones</th>
                             @endcan
@@ -30,7 +30,7 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td>{{$user->name}}</td>
-                                <td>{{$user->email}}</td>
+                                <td class="email">{{$user->email}}</td>
                                 @can('users.edit')
                                     <td class="">
                                         <div class="flex justify-end">
@@ -123,5 +123,10 @@
         border: 1px solid #ddd; /* Add a grey border */
         margin-bottom: 12px; /* Add some space below the input */
         border-radius: 7px;
+    }
+    @media screen and (max-width: 500px) {
+        .email{
+            display: none;
+        }
     }
 </style>

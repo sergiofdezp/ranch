@@ -90,9 +90,9 @@ class PostController extends Controller
         }else{
            unset($hors['imagen']);
         }
-        $horse->update($hors);
+        $post->update($hors);
         
-        return redirect()->route('posts.index')->with('message', $post->nombre .' ha sido editado correctamente.');
+        return redirect()->route('posts.index')->with('message', 'Post editado correctamente.');
     }
 
     /**
@@ -105,6 +105,6 @@ class PostController extends Controller
     {
         $post->delete();
         
-        return redirect()->route('posts.index')->with('message', 'El post '. $post->nombre .' ha sido eliminado correctamente.');
+        return redirect()->route('posts.index')->with('message', 'Post eliminado correctamente.');
     }
 }

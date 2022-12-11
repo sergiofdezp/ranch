@@ -25,65 +25,72 @@
                         <img src="/imagen/icons/register.png">
                     </a>
                 </li>
+            @else
+                <li class="icon icono">
+                    <span class="tooltip">Caballos</span>
+                    <a href="{{ route('horses.index') }}" :active="request()->routeIs('horses.index')">
+                        <img src="/imagen/icons/horse.png">
+                    </a>
+                </li>
+                @can('vacunas.index')
+                    <li class="icon icono">
+                        <span class="tooltip">Vacunas</span>
+                        <a href="{{ route('vacunas.index') }}" :active="request()->routeIs('vacunas.index')">
+                            <img src="/imagen/icons/vacuna.png">
+                        </a>
+                    </li>
+                @endcan
+                @can('domas.index')
+                    <li class="icon icono">
+                        <span class="tooltip">Domas</span>
+                        <a href="{{ route('domas.index') }}" :active="request()->routeIs('domas.index')">
+                            <img src="/imagen/icons/doma.png">
+                        </a>
+                    </li>
+                @endcan
+                @can('herraje.index')
+                    <li class="icon icono">
+                        <span class="tooltip">Herraje</span>
+                        <a href="{{ route('herraje.index') }}" :active="request()->routeIs('herraje.index')">
+                            <img src="/imagen/icons/herradura.png">
+                        </a>
+                    </li>
+                @endcan
+                @can('users.index')
+                    <li class="icon icono">
+                        <span class="tooltip">Usuarios</span>
+                        <a href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+                            <img src="/imagen/icons/users.png">
+                        </a>
+                    </li>
+                @endcan
+                @can('roles.index')
+                    <li class="icon icono">
+                        <span class="tooltip">Roles</span>
+                        <a href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
+                            <img src="/imagen/icons/role.png">
+                        </a>
+                    </li>
+                @endcan
+                <li class="icon icono">
+                    <span class="tooltip">Exposicion</span>
+                    <a href="{{ route('exposicion.index') }}" :active="request()->routeIs('exposicion.index')">
+                        <img src="/imagen/icons/exposicion.png">
+                    </a>
+                </li>
+                <li class="icon icono">
+                    <span class="tooltip">Blog</span>
+                    <a href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
+                        <img src="/imagen/icons/blog.png">
+                    </a>
+                </li>
+                <li class="icon icono">
+                    <span class="tooltip">Contacto</span>
+                    <a href="{{ route('email.index') }}" :active="request()->routeIs('email.index')">
+                        <img src="/imagen/icons/contacto.png">
+                    </a>
+                </li>
             @endif
-            <li class="icon icono">
-                <span class="tooltip">Caballos</span>
-                <a href="{{ route('horses.index') }}" :active="request()->routeIs('horses.index')">
-                    <img src="/imagen/icons/horse.png">
-                </a>
-            </li>
-            @can('vacunas.index')
-                <li class="icon icono">
-                    <span class="tooltip">Vacunas</span>
-                    <a href="{{ route('vacunas.index') }}" :active="request()->routeIs('vacunas.index')">
-                        <img src="/imagen/icons/vacuna.png">
-                    </a>
-                </li>
-            @endcan
-            @can('domas.index')
-                <li class="icon icono">
-                    <span class="tooltip">Domas</span>
-                    <a href="{{ route('domas.index') }}" :active="request()->routeIs('domas.index')">
-                        <img src="/imagen/icons/doma.png">
-                    </a>
-                </li>
-            @endcan
-            @can('herraje.index')
-                <li class="icon icono">
-                    <span class="tooltip">Herraje</span>
-                    <a href="{{ route('herraje.index') }}" :active="request()->routeIs('herraje.index')">
-                        <img src="/imagen/icons/herradura.png">
-                    </a>
-                </li>
-            @endcan
-            @can('users.index')
-                <li class="icon icono">
-                    <span class="tooltip">Usuarios</span>
-                    <a href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
-                        <img src="/imagen/icons/users.png">
-                    </a>
-                </li>
-            @endcan
-            @can('roles.index')
-                <li class="icon icono">
-                    <span class="tooltip">Roles</span>
-                    <a href="{{ route('roles.index') }}" :active="request()->routeIs('roles.index')">
-                        <img src="/imagen/icons/role.png">
-                    </a>
-                </li>
-            @endcan
-            <li class="icon icono">
-                <span class="tooltip">Blog</span>
-                <a href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
-                    <img src="/imagen/icons/blog.png">
-                </a>
-            </li>
-            <li class="icon icono">
-                <span class="tooltip">Contacto</span>
-                <a href="{{ route('email.index') }}" :active="request()->routeIs('email.index')">
-                    <img src="/imagen/icons/contacto.png">
-                </a>
-            </li>
         </ul>
     </body>
 </html>
