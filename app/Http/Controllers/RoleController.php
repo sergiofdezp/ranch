@@ -46,7 +46,7 @@ class RoleController extends Controller
 
         $role->permissions()->sync($request->permissions);
 
-        return redirect()->route('roles')->with('message', 'El rol ha sido creado correctamente.');
+        return redirect()->route('roles.index')->with('message', 'El rol ha sido creado correctamente.');
     }
 
     /**
