@@ -25,9 +25,9 @@ class RoleSeeder extends Seeder
         $role6 = Role::create(['name' => 'Herrador']);
 
         //horses permissions
-        Permission::create(['name' => 'horses.index', 'description' => 'Ver listado de caballos.'])->syncRoles([$role2, $role3]);
-        Permission::create(['name' => 'horses.create', 'description' => 'Añadir un caballo.'])->syncRoles([$role2, $role3]);
-        Permission::create(['name' => 'horses.edit', 'description' => 'Editar un caballo.'])->syncRoles([$role2, $role3]);
+        Permission::create(['name' => 'horses.index', 'description' => 'Ver listado de caballos.'])->syncRoles([$role2]);
+        Permission::create(['name' => 'horses.create', 'description' => 'Añadir un caballo.'])->syncRoles([$role2]);
+        Permission::create(['name' => 'horses.edit', 'description' => 'Editar un caballo.'])->syncRoles([$role2]);
 
         //vacunas permissions
         Permission::create(['name' => 'vacunas.index', 'description' => 'Ver listado de vacunas.'])->syncRoles([$role2]);
