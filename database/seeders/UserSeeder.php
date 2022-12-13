@@ -40,18 +40,6 @@ class UserSeeder extends Seeder
             'model_id' => "2"
         ]);
 
-        // encargado 
-        DB::table('users')->insert([
-            'name' => "Encargado",
-            'email' => "encargado@ranch.com",
-            'password' => Hash::make('encargado')
-        ]);
-        DB::table('model_has_roles')->insert([
-            'role_id' => "3",
-            'model_type' => "App\Models\User",
-            'model_id' => "3"
-        ]);
-
         // blogger 
         DB::table('users')->insert([
             'name' => "Blogger",
@@ -59,9 +47,9 @@ class UserSeeder extends Seeder
             'password' => Hash::make('blogger')
         ]);
         DB::table('model_has_roles')->insert([
-            'role_id' => "4",
+            'role_id' => "3",
             'model_type' => "App\Models\User",
-            'model_id' => "4"
+            'model_id' => "3"
         ]);
 
         // domador
@@ -71,9 +59,9 @@ class UserSeeder extends Seeder
             'password' => Hash::make('domador')
         ]);
         DB::table('model_has_roles')->insert([
-            'role_id' => "5",
+            'role_id' => "4",
             'model_type' => "App\Models\User",
-            'model_id' => "5"
+            'model_id' => "4"
         ]);
 
         // herrador
@@ -83,9 +71,9 @@ class UserSeeder extends Seeder
             'password' => Hash::make('herrador')
         ]);
         DB::table('model_has_roles')->insert([
-            'role_id' => "6",
+            'role_id' => "5",
             'model_type' => "App\Models\User",
-            'model_id' => "6"
+            'model_id' => "5"
         ]);
 
         // dueños
