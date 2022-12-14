@@ -30,7 +30,7 @@ class HerrajeController extends Controller
     {
         $herrajes = Herraje::all();
 
-        return view('herraje.create', compact('herrajes'));
+        return view('herrajes.create', compact('herrajes'));
     }
 
     /**

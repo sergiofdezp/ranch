@@ -4,7 +4,7 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="flex items-center justify-center p-12">
                     <div class="mx-auto w-full max-w-[550px]">
-                        <form action="{{ route('herrajes.update', $herraje->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('herraje.update', $herraje->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
