@@ -6,3 +6,18 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+
+<h3>Commands in Laravel to install the project in Laragon</h3>
+<ol>
+    <li>composer install</li>
+    <li>cp .env.example .env</li>
+    <li>php artisan key:generate</li>
+    <li>php artisan migrate</li>
+    <li>php artisan migrate:fresh --seed</li>
+</ol>
+
+<h3>Data to access the app:</h3>
+<ul>
+    <li>Email: superadmin@ranch.com</li>
+    <li>Pass: superadmin</li>
+</ul>
